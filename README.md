@@ -108,6 +108,7 @@ Agendamentos entre pacientes e profissionais.
 | professional | User | Profissional |
 | dateTime | LocalDateTime | Data/hora da consulta |
 | status | Enum(AppointmentStatus) | SCHEDULED, COMPLETED, CANCELLED |
+| type | Enum(AppointmentType) | PRESENTIAL, TELEMEDICINE |
 | notes | String | Observações |
 
 ---
