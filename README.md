@@ -21,8 +21,6 @@ Backend desenvolvido em **Java + Spring Boot + MySQL (via Docker)** para gerenci
 
 Antes de iniciar, certifique-se de ter instalado:
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
 - [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install)
 - [Git](https://git-scm.com/)
 
