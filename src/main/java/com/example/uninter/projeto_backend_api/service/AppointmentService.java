@@ -18,6 +18,7 @@ public class AppointmentService {
 
     private final AppointmentRepository appointmentRepository;
     private final UserRepository userRepository;
+    private final NotificationService notificationService;
 
     public AppointmentDTO createAppointment(AppointmentDTO dto) {
         User patient = userRepository.findByEmail(dto.getPatientEmail())
@@ -35,6 +36,14 @@ public class AppointmentService {
                 .build();
 
         Appointment saved = appointmentRepository.save(appointment);
+
+        notificationService.notifyUser(
+                appointment.getPatient().getId(),
+                "Nova consulta agendada",
+                "Sua consulta com o Dr(a). " + appointment.getProfessional().getFullName() +
+                        " foi agendada para " + appointment.getScheduledDate()
+        );
+
         return mapToDTO(saved);
     }
 
@@ -43,6 +52,13 @@ public class AppointmentService {
                 .orElseThrow(() -> new RuntimeException("Agendamento não encontrado"));
 
         appointment.setStatus(AppointmentStatus.CANCELED);
+
+        notificationService.notifyUser(
+                appointment.getPatient().getId(),
+                "Consulta cancelada",
+                "Sua consulta marcada para " + appointment.getScheduledDate() + " foi cancelada."
+        );
+
         return mapToDTO(appointmentRepository.save(appointment));
     }
 
