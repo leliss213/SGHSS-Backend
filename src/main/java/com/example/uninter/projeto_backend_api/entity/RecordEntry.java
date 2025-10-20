@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "record_entry")
 @Data
@@ -19,9 +21,15 @@ public class RecordEntry extends BaseEntity {
     private MedicalRecord medicalRecord; // Prontuário ao qual pertence
 
     @ManyToOne
-    @JoinColumn(name = "professional_id")
-    private User professional; // Profissional que fez o registro
+    @JoinColumn(name = "appointment_id")
+    private Appointment appointment; // consulta relacionada (opcional)
 
-    @Column(length = 2000)
-    private String description; // Descrição do registro médico
+    @ManyToOne
+    @JoinColumn(name = "prescription_id")
+    private Prescription prescription; // receita relacionada (opcional)
+
+    private LocalDateTime date;
+
+    @Column(length = 2000, columnDefinition = "TEXT")
+    private String notes; // Descrição do registro médico
 }
