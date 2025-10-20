@@ -25,4 +25,6 @@ public class AppointmentDTO {
     private LocalDateTime scheduledDate;
 
     private String notes;
+
+    private Long hospitalId;
 }

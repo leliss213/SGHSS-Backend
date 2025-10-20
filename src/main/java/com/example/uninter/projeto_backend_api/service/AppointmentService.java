@@ -80,6 +80,7 @@ public class AppointmentService {
                 .status(appointment.getStatus())
                 .scheduledDate(appointment.getScheduledDate())
                 .notes(appointment.getNotes())
+                .hospitalId(appointment.getHospital() != null ? appointment.getHospital().getId() : null)
                 .build();
     }
 }

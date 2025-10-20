@@ -27,4 +27,8 @@ public class User extends BaseEntity implements Serializable {
     private UserType userType;
 
     private String cpf;
+
+    @ManyToOne
+    @JoinColumn(name = "hospital_id")
+    private Hospital hospital;
 }

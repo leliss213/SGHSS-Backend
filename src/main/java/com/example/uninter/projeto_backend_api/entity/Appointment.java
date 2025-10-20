@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class Appointment extends BaseEntity{
 
     @ManyToOne
@@ -36,4 +37,8 @@ public class Appointment extends BaseEntity{
     private LocalDateTime scheduledDate;
 
     private String notes; // Obervações
+
+    @ManyToOne
+    @JoinColumn(name = "hospital_id")
+    private Hospital hospital; // onde ocorreu o atendimento (ou null em telemedicina)
 }

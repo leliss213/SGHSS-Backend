@@ -40,6 +40,7 @@ public class UserService {
                 .userType(user.getUserType())
                 .cpf(user.getCpf())
                 .id(user.getId())
+                .hospitalId(user.getHospital() != null ? user.getHospital().getId() : null)
                 .build();
     }
 
