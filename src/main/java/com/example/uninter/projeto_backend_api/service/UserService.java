@@ -39,6 +39,7 @@ public class UserService {
                 .password(null) // nunca retornar senha
                 .userType(user.getUserType())
                 .cpf(user.getCpf())
+                .id(user.getId())
                 .build();
     }
 

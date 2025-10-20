@@ -18,12 +18,8 @@ import java.time.LocalDateTime;
 public class Prescription extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private User patient;
-
-    @ManyToOne
-    @JoinColumn(name = "professional_id", nullable = false)
-    private User professional;
+    @JoinColumn(name = "appointment_id", nullable = false)
+    private Appointment appointment;
 
     @Column(nullable = false)
     private LocalDateTime date; // Data da emissão
