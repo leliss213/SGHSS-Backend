@@ -13,5 +13,23 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  app:
+    build:
+      context: ..              #volta um nível para achar o Dockerfile na raiz
+      dockerfile: Dockerfile
+    container_name: uninter_backend_api
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/uninter_backend
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+
+
 volumes:
   db_data:
