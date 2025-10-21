@@ -188,9 +188,9 @@ Histórico clínico do paciente, contendo múltiplas entradas.
 
 ---
 
-### 📅 Agendamentos (`/api/appointments`)
+### Agendamentos (`/api/appointments`)
 
-#### ➕ Criar Agendamento
+#### Criar Agendamento
 **POST** `/api/appointments`
 
 ```json
@@ -229,7 +229,7 @@ Histórico clínico do paciente, contendo múltiplas entradas.
 ```json
 {
   "appointmentId": 10,
-  "data": "2025-10-21T15:30:00",
+  "date": "2025-10-21T15:30:00",
   "digitalSignature": true,
   "medicationsInfo": "Paracetamol 500mg, tomar 1 comprimido a cada 8 horas por 5 dias."
 }
@@ -238,7 +238,6 @@ Histórico clínico do paciente, contendo múltiplas entradas.
 **Resposta**
 ```json
 {
-  "id": 5,
   "appointmentId": 10,
   "date": "2025-10-21T16:00:00",
   "digitalSignature": true,
