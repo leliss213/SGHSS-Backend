@@ -14,6 +14,7 @@ Backend desenvolvido em **Java + Spring Boot + MySQL (via Docker)** para gerenci
 - **MySQL 8**
 - **Lombok**
 - **Docker / Docker Compose**
+- **JWT (io.jsonwebtoken 0.11.5)**
 
 ---
 
@@ -81,6 +82,34 @@ Banco de dados MySQL:
 - Banco: `uninter_backend`
 
 ---
+
+## Autenticação JWT
+
+O sistema utiliza JWT para autenticar os endpoints.
+
+### Endpoints Públicos:
+- POST /auth/register - registr novo usuário
+- POST /auth/login - login e obtenção do token
+
+Exemplo de login:
+```json
+{
+  "email": "leandro@example.com",
+  "password": "123456"
+}
+```
+
+Resposta:
+```json
+{
+  "token": "<JWT_TOKEN>"
+}
+```
+
+Todos os demais endpoints (/api/users, /api/appointments, /api/prescriptions, /api/medical-records) exigem token JWT no header:
+```makefile
+Authorization: Bearer <JWT_TOKEN_AQUI>
+```
 
 ## Entidades Principais
 
